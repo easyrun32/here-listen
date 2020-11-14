@@ -24,7 +24,7 @@ With Herelisten you simply say 🗣️
 
 ### Tech
 
-Herelisten uses a number of open source projects to work properly:
+Here listen uses a number of open source projects to work properly:
 
 - [React] - An awesome front end libary
 - [Docker] 🐳 - To keep our application containerized from this updating Era

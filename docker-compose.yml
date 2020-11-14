@@ -26,8 +26,8 @@ services:
     environment:
       MYSQL_DATABASE: users_prod
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD: password
       DATABASE_HOST: users-db #change this to users-db
     ports:
       - "3307:3306"
