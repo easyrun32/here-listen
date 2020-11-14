@@ -22,7 +22,7 @@ With Herelisten you simply say 🗣️
 -Maybe we can add an Emoji to comments
 "Emojis are cool"
 
-- Workflow
+- Workflows are cool
 
 ### Tech
 
