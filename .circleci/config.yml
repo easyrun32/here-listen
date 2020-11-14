@@ -4,7 +4,7 @@ orbs:
 workflows:
   test:
     jobs:
-      - users/test-package-json:
+      - node/test-package-json:
           app-dir: users/
           paths: users/
           version: "12.16"
