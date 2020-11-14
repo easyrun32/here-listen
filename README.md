@@ -19,8 +19,8 @@ With Herelisten you simply say 🗣️
 
 ### Features
 
-Maybe we can add an Emoji to comments
-Emojis are cool
+-Maybe we can add an Emoji to comments
+"Emojis are cool"
 
 ### Tech
 
@@ -52,11 +52,19 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 cd here-listen
 export REACT_APP_USERS_SERVICE_URL=http://localhost:5001/
 docker-compose up
+
+// Also don't Forget to do!
+
+docker-compose down
+
+// Your code will not update if you don't do this!
+
+// Also beware docker will eat your memory i have stuff to help you at the end of this Readme.md
 ```
 
 ## (Windows 10 pro Users)
 
-You'll probably run into a FileSharing error
+You'll probably run into a FileSharing error because windows loves protecting you!
 <br/>
 
 ```
@@ -66,7 +74,9 @@ Docker.Core.DockerException Filesharing has been cancelled
 here is a link to fix this
 <br/>
 [file-share-error]
-.Bascially just add your working directory wherever you put this project in
+Bacially go to the Docker app ->dashboard ->click the setting wheel -> resources-> filesharing
+then add your working directory
+
 <br/>
 then...
 
@@ -84,6 +94,17 @@ docker-compose down
 ```
 
 Thats it !😄
+
+## Note Docker will eat up your ssd or hdd
+
+You can fix this in the resource and accumalate how much memory docker needs
+personally i do 16gb
+
+## Also to delete docker images
+
+This site will help alot
+
+- [free my memory from docker evils hands link](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 ## TEST IT 🧑‍🔬
 
