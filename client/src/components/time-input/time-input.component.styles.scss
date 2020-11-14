@@ -1,0 +1,21 @@
+$inputfontsize: 18px;
+$color_input: cyan;
+.time-input {
+  background-color: $color_input;
+  font-size: $inputfontsize;
+}
+
+// .input,
+// .textarea {
+//   border: 1px solid #ccc;
+//   font-family: inherit;
+//   font-size: inherit;
+//   padding: 1px 6px;
+// }
+// p strong {
+//   display: block;
+// }
+// .textarea[contenteditable]:empty::before {
+//   content: "Placeholder still possible";
+//   color: gray;
+// }

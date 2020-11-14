@@ -1,0 +1,7 @@
+/terraform/.terraform
+/terraform/terraform.tfstate.backup
+/terraform/terraform.tfstate
+/terraform/terraform.tfvars
+/terraform/terraform.pem
+/terraform/terraform.pub
+/terraform/.terraform.tfstate.lock.info
