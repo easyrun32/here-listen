@@ -14,6 +14,6 @@ resource "aws_db_instance" "here-listen-db" {
   skip_final_snapshot        = true
   max_allocated_storage      = 0
   auto_minor_version_upgrade = false
-  vpc_security_group_ids     = [aws_security_group.tellem-sg.id]
+  vpc_security_group_ids     = [aws_security_group.here-listen-sg.id]
   #deletion_protection  is false
 }

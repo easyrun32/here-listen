@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
-Herelisten uses alexa to make http request to the application.
+Here listen is a microservice app that uses alexa
+<br/>
+to deliver important notices to an online bussiness hub or project.
 
 ## Example
 
@@ -47,7 +49,7 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 ## (Unix Users)
 
 ```
-cd Herelisten
+cd here-listen
 export REACT_APP_USERS_SERVICE_URL=http://localhost:5001/
 docker-compose up
 ```
@@ -69,7 +71,7 @@ here is a link to fix this
 then...
 
 ```
-cd Herelisten
+cd here-listen
 SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001/
 docker-compose up
 

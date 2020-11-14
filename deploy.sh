@@ -28,9 +28,9 @@ update_service() {
 
 deploy_cluster() {
 
-  cluster="tell-em-cluster" # for all commits on git this will update the ecs
+  cluster="here-listen-cluster" # for all commits on git this will update the ecs
   
-  service="tellem-users-service"  # for all commits on git this will update the ecs
+  service="here-listen-users-service"  # for all commits on git this will update the ecs
 
 
   # Users
@@ -42,7 +42,7 @@ deploy_cluster() {
   update_service  # for all commits on git this will update the ecs
 
   # Client
-  service="tellem-client-service"   # for all commits on git this will update the ecs
+  service="here-listen-client-service"   # for all commits on git this will update the ecs
   template="ecs_client_taskdefinition.json"
   task_template=$(cat "ecs/$template")
   task_def=$(printf "$task_template" $AWS_ACCOUNT_ID)
