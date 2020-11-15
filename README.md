@@ -2,9 +2,13 @@
 
 ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoickR5eWxpT0U5WHFBM0pvMlgvYzRROGRWNWQ0MDl6d0xYSTRrQzdmT1VJWm12N1dxTzVxejRReUQ1SktPeXE4THZJTmJMS3F5Q1U4VjFWZkVXRG94cnR3PSIsIml2UGFyYW1ldGVyU3BlYyI6IjNCVWJPMnVuQWhmM3NkV0MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-Here listen is a microservice app that uses alexa
+🤔🤔🤔 I don't know why this isn't working ^ It passes in codebuild? Guess..I'll switch it to CircleCi
 <br/>
-to deliver important notices to an online bussiness hub or project.
+Anyways....
+<br/>
+Here listen is a microservice app that uses Alexa. Well... soon to use Alexa. This is a boilerplate as of now but it's already deployable with codebuild using ecs.
+<br/>
+But this project is to deliver important notices to an online bussiness or ongoing projects.
 
 ## Example
 
@@ -13,18 +17,20 @@ Say you have a project or a team and you want them to be informed about what's g
 
 With Herelisten you simply say 🗣️
 
-"Hey Alexa ..."
+"Hey Alexa ... Open Here Listen"
 <br/>
+
 "Tell the bois we don't have work tomorrow"
 
-### Features
+"Tell the bois I hope you have added Continous integration! 😡"
 
--Maybe we can add an Emoji to comments
-"Emojis are cool"
+### Features for the future
 
+- Maybe we can add an Emoji to comments
+  "Emojis are cool"
 - Workflows are cool
 
-### Tech
+### Technologies
 
 Here listen uses a number of open source projects to work properly:
 
@@ -37,7 +43,7 @@ Here listen uses a number of open source projects to work properly:
 
 # Want to contribute? Great!
 
-It's ok don't be afraid to contribute to this project is in its early stages! Right now it's just suppose to login and logout. To get this up and running Docker 🐳 will help you. It's made for this stuff just head over to [Docker](https://www.docker.com/products/docker-desktop) and pick your operating system!
+It's ok don't be afraid to contribute to this project is in its early stages! Right now it's just suppose to login and logout. To get this up and running Docker 🐳 will help you. It's made to run in your os without troubles! Head over to [Docker](https://www.docker.com/products/docker-desktop) and pick your operating system!
 
 ### Installation
 
