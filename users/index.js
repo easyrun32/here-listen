@@ -11,6 +11,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//To test jest
+
 app.get("/pingdb", (req, res) => {
   var connection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
