@@ -1,21 +1,9 @@
 version: 2
-#Implement some circleci?
-defaults: &defaults
-  working_directory: ~/../users
-  docker:
-    - image: circleci/node:8.9.1
 jobs:
-  test:
-    <<: *defaults
+  build:
+    working_directory: ~/here-listen
+    docker:
+      - image: circleci/python:3.6.8
+      - image: circleci/mysql:5.6
     steps:
       - checkout
-      - run: npm install
-      - run:
-          name: Run tests
-          command: npm test
-
-workflows:
-  version: 2
-  only_test:
-    jobs:
-      - test
