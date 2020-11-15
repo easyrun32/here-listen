@@ -3,6 +3,7 @@ jobs:
   user:
     working_directory: ~/here-listen/
     docker:
+      # Must be node 14 because our docker container for user  is node 14
       - image: circleci/node:14
     steps:
       - checkout
@@ -11,9 +12,14 @@ jobs:
   client:
     working_directory: ~/here-listen/
     docker:
+      # Must be node 13 because our docker container for client  is node 13
       - image: circleci/node:13
     steps:
       - checkout
+      - run: cd client && npm install
+      - run: cd client && npm run client-install
+      - run: cd client && CI=true npm run build
+      - run: cd client && npm test
 workflows:
   version: 2
   Test-Servers:

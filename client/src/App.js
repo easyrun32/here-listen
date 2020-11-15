@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 //BOILERPLATE
-function App() {
+export function App() {
   const testbackend = () => {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/test`).then((res) => {
       alert(JSON.stringify(res.data));
