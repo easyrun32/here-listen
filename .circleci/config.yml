@@ -8,8 +8,17 @@ jobs:
       - checkout
       - run:
           command: cd users && npm install && npm test
+  client:
+    working_directory: ~/here-listen/
+    docker:
+      - image: circleci/node:13
+    steps:
+      - checkout
 workflows:
   version: 2
-  Test-User:
+  Test-Servers:
     jobs:
       - user
+  Test-Client:
+    jobs:
+      - client
