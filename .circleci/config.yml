@@ -1,10 +1,12 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/here-listen/users/
+    working_directory: ~/here-listen/
     docker:
       - image: circleci/node:8
     steps:
       - checkout
-      - run: pwd
-      - run: ls
+      - run:
+          command: pwd
+          working_directory: /users
+          command: pwd
