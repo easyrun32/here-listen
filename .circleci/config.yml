@@ -3,6 +3,6 @@ jobs:
   build:
     working_directory: ~/here-listen/users
     docker:
-      - image: circleci/node:8-alpine
+      - image: circleci/node:8
     steps:
       - checkout
