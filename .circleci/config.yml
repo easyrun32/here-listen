@@ -1,8 +1,6 @@
-version: 2.1
+version: 2
 
-jobs:
-  users:
-    docker:
-      - image: circleci/node@3.0.0
-      working_directory: ~/users
-
+defaults: &defaults
+  working_directory: ~/users
+  docker:
+    - image: circleci/node:8.9.1
