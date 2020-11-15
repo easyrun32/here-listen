@@ -7,5 +7,5 @@ jobs:
     steps:
       - checkout
       - run:
+          command: cd /users
           command: pwd
-          working_directory: /users
