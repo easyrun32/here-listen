@@ -118,7 +118,7 @@ This site will help alot
 
 - [free my memory from docker evils hands link](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
-## TEST IT 🧑‍🔬
+## TEST IT 🔎 🔬
 
 [localhost:3007](http://localhost:3007) For Client
 <br/>
