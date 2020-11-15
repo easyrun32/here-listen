@@ -6,9 +6,9 @@ defaults: &defaults
     - image: circleci/node:8.9.1
 jobs:
   test:
+    <<: *defaults
     steps:
-      - run:
-        command: echo 'hello'
+      - checkout
 
 workflows:
   version: 2
