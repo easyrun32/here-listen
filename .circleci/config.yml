@@ -8,4 +8,5 @@ jobs:
       - checkout
       - run:
           command: cd /users
+      - run:
           command: pwd
