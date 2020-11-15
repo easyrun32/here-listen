@@ -1,7 +1,8 @@
 # Dockerfile for node.js tellem
 
-FROM node:8-alpine
-
+# FROM node:8-alpine
+#New
+FROM node:14-alpine
 # Create app directory
 WORKDIR /usr/src/app
 
@@ -10,7 +11,11 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+#New
+RUN npm install npm@7
+
 RUN npm install --only=production
+
 
 # Bundle app source
 COPY . .

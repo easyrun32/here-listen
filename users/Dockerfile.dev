@@ -1,6 +1,7 @@
 # Dockerfile for node.js users
-
-FROM node:8-alpine
+#FROM node:8-alpine
+#New
+FROM node:14-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -11,9 +12,12 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 
-
+#New
+RUN npm install npm@7
 
 RUN npm install 
+
+
 
 
 COPY . .
