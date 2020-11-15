@@ -19,7 +19,7 @@ But this project is to deliver important notices to an online bussiness or ongoi
 <ins></ins>
 Say you have a project or a team and you want them to be informed about what's going on? 🤔
 
-With Herelisten you simply say 🗣️
+With Here listen you simply say 🗣️
 
 "Hey Alexa ... Open Here Listen"
 <br/>
@@ -47,7 +47,7 @@ Here listen uses a number of open source projects to work properly:
 
 # Want to contribute? Great!
 
-It's ok don't be afraid to contribute to this project is in its early stages! Right now it's just suppose to login and logout. To get this up and running Docker 🐳 will help you. It's made to run in your os without troubles! Head over to [Docker](https://www.docker.com/products/docker-desktop) and pick your operating system!
+It's ok don't be afraid to contribute to this project is in its early stages! Right now it's just suppose to login and logout. To get this up and running. Docker 🐳 will help you. It's made to run in your os without troubles! Head over to [Docker](https://www.docker.com/products/docker-desktop) and pick your operating system!
 
 ### Installation
 
