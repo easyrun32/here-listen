@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/here-listen/
     docker:
-      - image: circleci/node:15.2.0
+      - image: circleci/node:8
     steps:
       - checkout
       - run:
