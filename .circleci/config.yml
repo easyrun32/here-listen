@@ -1,7 +1,7 @@
 version: 2
 #Implement some circleci?
 defaults: &defaults
-  working_directory: ~/users
+  working_directory: ~/../users
   docker:
     - image: circleci/node:8.9.1
 jobs:
