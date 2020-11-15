@@ -1,7 +1,7 @@
 version: 2
 #Implement some circleci?
 defaults: &defaults
-  working_directory: ../users/
+  working_directory: ~/something
   docker:
     - image: circleci/node:8.9.1
 jobs:
@@ -25,7 +25,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
-          root: ../users/
+          root: ~/something
           paths: .
 
 workflows:
