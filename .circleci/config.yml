@@ -7,6 +7,8 @@ jobs:
     steps:
       - checkout
       - run:
-          command: cd /users
+          command: pwd
+      - run:
+          command: cd users
       - run:
           command: pwd
