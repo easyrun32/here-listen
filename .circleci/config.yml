@@ -9,4 +9,3 @@ jobs:
       - run:
           command: pwd
           working_directory: /users
-          command: pwd
