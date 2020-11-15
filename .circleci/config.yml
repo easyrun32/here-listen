@@ -9,6 +9,4 @@ jobs:
       - run:
           command: pwd
       - run:
-          command: cd users
-      - run:
-          command: pwd
+          command: cd users && npm install && npm test
