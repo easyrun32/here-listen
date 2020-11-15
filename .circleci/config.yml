@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/here-listen
+    working_directory: ~/here-listen/users
     docker:
-      - image: circleci/python:3.6.8
-      - image: circleci/mysql:5.6
+      - image: circleci/node:8-alpine
     steps:
       - checkout
