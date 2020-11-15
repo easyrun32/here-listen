@@ -4,3 +4,14 @@ defaults: &defaults
   working_directory: ~/users
   docker:
     - image: circleci/node:8.9.1
+jobs:
+  test:
+    steps:
+      - run:
+        command: echo 'hello'
+
+workflows:
+  version: 2
+  only_test:
+    jobs:
+      - test
