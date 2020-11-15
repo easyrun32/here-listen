@@ -13,7 +13,7 @@ COPY package*.json ./
 
 
 #New
-RUN npm install npm@7
+# RUN npm install npm@7
 
 RUN npm install 
 

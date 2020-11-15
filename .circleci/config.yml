@@ -1,12 +1,15 @@
 version: 2
 jobs:
-  build:
+  user:
     working_directory: ~/here-listen/
     docker:
       - image: circleci/node:14
     steps:
       - checkout
       - run:
-          command: cd users && ls
-      - run:
           command: cd users && npm install && npm test
+workflows:
+  version: 2
+  Test-User:
+    jobs:
+      - user

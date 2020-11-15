@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 #New
-RUN npm install npm@7
+# RUN npm install npm@7
 
 RUN npm install --only=production
 
