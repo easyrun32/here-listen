@@ -5,3 +5,4 @@
 /terraform/terraform.pem
 /terraform/terraform.pub
 /terraform/.terraform.tfstate.lock.info
+.DS_Store
