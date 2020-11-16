@@ -100,6 +100,8 @@ SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001
 
 SET
 
+// then start up your environment with
+
 docker-compose up
 
 // Also don't Forget to do!
