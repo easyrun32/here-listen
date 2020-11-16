@@ -1,5 +1,7 @@
 # Here listen
 
+[![<easyrun32>](https://circleci.com/<gh>/<easyrun32>/<here-listen>.svg?style=svg)](https://app.circleci.com/pipelines/github/easyrun32/here-listen?branch=main)
+
 ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoickR5eWxpT0U5WHFBM0pvMlgvYzRROGRWNWQ0MDl6d0xYSTRrQzdmT1VJWm12N1dxTzVxejRReUQ1SktPeXE4THZJTmJMS3F5Q1U4VjFWZkVXRG94cnR3PSIsIml2UGFyYW1ldGVyU3BlYyI6IjNCVWJPMnVuQWhmM3NkV0MiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 🤔🤔🤔 I don't know why this isn't working ^ It passes in codebuild?
@@ -62,7 +64,11 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 
 ```
 cd here-listen
-export REACT_APP_USERS_SERVICE_URL=http://localhost:5001/
+cd users && npm install
+cd ..
+cd client && npm install 
+
+export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
 docker-compose up
 
 // Also don't Forget to do!
@@ -94,7 +100,16 @@ then...
 
 ```
 cd here-listen
-SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001/
+cd users && npm install
+cd ..
+cd client && npm install 
+
+SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001
+
+// To check for you all your env
+
+SET
+
 docker-compose up
 
 // Also don't Forget to do!
