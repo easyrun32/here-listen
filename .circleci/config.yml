@@ -21,9 +21,7 @@ jobs:
       - run: cd client && npm test
 workflows:
   version: 2
-  Test-Servers:
+  Test-Servers-and-Client:
     jobs:
       - user
-  Test-Client:
-    jobs:
       - client

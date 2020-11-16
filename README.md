@@ -1,9 +1,7 @@
 # Here listen
 
-[![<easyrun32>](https://circleci.com/gh/easyrun32/here-listen.svg?style=shield)](https://app.circleci.com/pipelines/github/easyrun32/here-listen?branch=main)
+[![<easyrun32>](https://circleci.com/gh/easyrun32/here-listen.svg?style=svg)](https://app.circleci.com/pipelines/github/easyrun32/here-listen?branch=main)
 
-<br/>
-<br/>
 Here listen is a microservice app that uses Alexa. Well... soon to use Alexa. This is a boilerplate as of now but it's already deployable with codebuild using ecs.
 <br/>
 But this project is to deliver important notices to an online bussiness or ongoing projects.

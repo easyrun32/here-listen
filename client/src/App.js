@@ -16,7 +16,7 @@ export function App() {
         alert(JSON.stringify(res.data));
       });
   };
-  error;
+
   return (
     <div className="App">
       <br />
