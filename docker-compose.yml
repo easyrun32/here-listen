@@ -4,13 +4,14 @@ services:
     build:
       context: ./users
       dockerfile: Dockerfile.dev
+    command: ["/wait-for-it.sh","users-db:3307","--", "npm", "start"]
     volumes:
       - "./users:/usr/src/app"
     ports:
       - 5001:5000
     environment:
       # Because it's in a different container we must use the container's IP
-      MYSQL_DATABASE: users_prod
+      # MYSQL_DATABASE: users_prod
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
       MYSQL_PASSWORD: password
@@ -24,13 +25,15 @@ services:
       context: ./users/database
       dockerfile: Dockerfile
     environment:
-      MYSQL_DATABASE: users_prod
+      # MYSQL_DATABASE: users_prod
       MYSQL_ROOT_PASSWORD: password
       # MYSQL_USER: root
       # MYSQL_PASSWORD: password
       DATABASE_HOST: users-db #change this to users-db
     ports:
       - "3307:3306"
+    volumes:
+      - users-db:/var/lib/mysql
 
   client:
     build:
@@ -46,3 +49,5 @@ services:
       - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
     depends_on:
       - users
+volumes:
+  users-db:
