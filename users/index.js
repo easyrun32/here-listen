@@ -7,11 +7,18 @@ const app = express();
 const mysql = require("mysql");
 
 const port = process.env.PORT || 5000;
+const login_register = require("./routes/login-register");
+
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//To test jest
+const router = express.Router();
+
+console.log('hello world!')
+
+app.post("/register", login_register.register);
+app.post("/login", login_register.login);
 
 app.get("/pingdb", (req, res) => {
   var connection = mysql.createConnection({
@@ -36,14 +43,6 @@ app.get("/pingdb", (req, res) => {
   connection.end();
 });
 
-app.get("/db", (req, res) => {
-  res.send({
-    host: process.env.DATABASE_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_ROOT_PASSWORD,
-    password1: "password?",
-  });
-});
 app.get("/test", (req, res) => {
   res.send({ express: "testing " });
 });

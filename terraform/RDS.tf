@@ -1,12 +1,26 @@
 # RDS SETUP terraform goes here.
 resource "aws_db_instance" "here-listen-db" {
-  allocated_storage          = 10
-  storage_type               = "gp2"
-  engine                     = "mysql"
-  engine_version             = "5.7.21"
-  instance_class             = "db.t2.micro"
-  identifier                 = "here-listen-db"
-  name                       = "db"
+  allocated_storage = 10
+  storage_type      = "gp2"
+  engine            = "mysql"
+  engine_version    = "5.7.21"
+  instance_class    = "db.t2.micro"
+  /*
+  identifier - (Optional, Forces new resource) The name 
+  of the RDS instance, if omitted, Terraform will assign a
+   random, unique identifier. Required if restore_to_point_in_time 
+   is specified.
+  */
+  identifier = "here-listen-db"
+
+  /*
+  name - (Optional) The name of the database to create when the
+   DB instance is created. If this parameter is not specified, 
+   no database is created in the DB instance. Note that this does
+    not apply for Oracle or SQL Server engines. See the AWS 
+    documentation for more details on what applies for those engines.
+  */
+  name                       = "users_prod"
   username                   = "admin"
   password                   = "${var.mysql-root-password}"
   parameter_group_name       = "default.mysql5.7"
