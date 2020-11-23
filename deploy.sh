@@ -51,19 +51,21 @@ deploy_cluster() {
   update_service   # for all commits on git this will update the ecs
 
 }
-configure_aws_cli
-deploy_cluster
-# # new
-# echo $CODEBUILD_WEBHOOK_BASE_REF
-# echo $CODEBUILD_WEBHOOK_HEAD_REF
-# echo $CODEBUILD_WEBHOOK_TRIGGER
-# echo $CODEBUILD_WEBHOOK_EVENT
+#OLD------------ master
+# configure_aws_cli
+# deploy_cluster
+# --------
+# new
+echo $CODEBUILD_WEBHOOK_BASE_REF
+echo $CODEBUILD_WEBHOOK_HEAD_REF
+echo $CODEBUILD_WEBHOOK_TRIGGER
+echo $CODEBUILD_WEBHOOK_EVENT
 
-# # new
-# if  [ "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/master" ] && \
-#     [ "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/master" ]
-# then
-#   echo "Updating ECS."
-#   configure_aws_cli
-#   deploy_cluster
-# fi
+# new
+if  [ "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/main" ] && \
+    [ "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/main" ]
+then
+  echo "Updating ECS."
+  configure_aws_cli
+  deploy_cluster
+fi

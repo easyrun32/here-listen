@@ -4,7 +4,7 @@ services:
     build:
       context: ./users
       dockerfile: Dockerfile.dev
-    # command: ["/wait-for-it.sh","users-db:3307","--", "npm", "start"]
+    command: ["/wait-for-it.sh", "users-db:3307", "--", "npm", "start"]
     volumes:
       - "./users:/usr/src/app"
     ports:
@@ -32,8 +32,8 @@ services:
       DATABASE_HOST: users-db #change this to users-db
     ports:
       - "3307:3306"
-    # volumes:
-    #   - users-db:/var/lib/mysql
+    volumes:
+      - users-db:/var/lib/mysql
 
   client:
     build:
