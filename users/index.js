@@ -39,7 +39,7 @@ app.get("/pingdb", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.send({ express: "testing " });
+  res.send({ express: "I've just been updated" });
 });
 app.post("/test", (req, res) => {
   res.send(
