@@ -51,6 +51,8 @@ deploy_cluster() {
   update_service   # for all commits on git this will update the ecs
 
 }
+configure_aws_cli
+deploy_cluster
 # # new
 # echo $CODEBUILD_WEBHOOK_BASE_REF
 # echo $CODEBUILD_WEBHOOK_HEAD_REF
