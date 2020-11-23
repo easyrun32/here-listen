@@ -35,7 +35,7 @@ FROM node:14-alpine
 
 # Create app directory
 # this initialize bash to run bash wait-for-it.sh
-RUN apk update && apk add bash
+# RUN apk update && apk add bash
 # set working directory
 WORKDIR /usr/src/app
 
