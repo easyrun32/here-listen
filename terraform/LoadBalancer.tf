@@ -58,7 +58,7 @@ resource "aws_lb_listener_rule" "static" {
 
   condition {
     path_pattern {
-      values = ["/test", "/pingdb"]
+      values = ["/test", "/pingdb", "/user/login", "/user/register"]
     }
   }
 
