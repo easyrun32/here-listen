@@ -25,9 +25,10 @@ phases:
       # docker login --username AWS --password-stdin #old
       # docker login -u reactnode32 --password-stdin < .docker.key
       # aws s3 cp s3://mybucket/mypath/.docker.key .docker.key
-      - aws s3 cp s3://docker-token/docker.key .docker.key
-      - aws ecr get-login-password --region $AWS_REGION | docker login -u reactnode32 --password-stdin < .docker.key $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-      - rm .docker.key
+      # - aws s3 cp s3://docker-token/docker.key .docker.key
+      # aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin < .docker.key 642815940637.dkr.ecr.us-east-1.amazonaws.com
+      #- aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin  $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG || true
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder || true
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG || true
