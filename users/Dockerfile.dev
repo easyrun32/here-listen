@@ -1,35 +1,8 @@
-#Development
-# FROM node:14-alpine
-
-# # this initialize bash to run bash wait-for-it.sh
-# RUN apk update && apk add bash
-# # set working directory
-# WORKDIR /usr/src/app
-
-# # Install app dependencies
-# # A wildcard is used to ensure both package.json AND package-lock.json are copied
-# # where available (npm@5+)
-# COPY package*.json ./
-
-# COPY . .
-# # install dependencies
-# RUN npm install
-
-
-# # to copy it into the bash directory
-# COPY wait-for-it.sh /wait-for-it.sh
-# # to make wait-for-it.sh excutable without permission error
-# RUN chmod +x /wait-for-it.sh
-
 # Development
-
-# Production!
-
 FROM node:14-alpine
 
-# Create app directory
 # this initialize bash to run bash wait-for-it.sh
-# RUN apk update && apk add bash
+RUN apk update && apk add bash
 # set working directory
 WORKDIR /usr/src/app
 
@@ -37,12 +10,39 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
-#New
-# RUN npm install npm@7
-
-RUN npm install 
 
 COPY . .
+# install dependencies
+RUN npm install
 
-CMD [ "npm", "start" ] 
+
+# to copy it into the bash directory
+COPY wait-for-it.sh /wait-for-it.sh
+# to make wait-for-it.sh excutable without permission error
+RUN chmod +x /wait-for-it.sh
+
+# Development
+
+# Production!
+
+# FROM node:14-alpine
+
+# # Create app directory
+# # this initialize bash to run bash wait-for-it.sh
+# # RUN apk update && apk add bash
+# # set working directory
+# WORKDIR /usr/src/app
+
+# # Install app dependencies
+# # A wildcard is used to ensure both package.json AND package-lock.json are copied
+# # where available (npm@5+)
+# COPY package*.json ./
+# #New
+# # RUN npm install npm@7
+
+# RUN npm install 
+
+# COPY . .
+
+# CMD [ "npm", "start" ] 
 

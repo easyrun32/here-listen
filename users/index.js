@@ -39,7 +39,7 @@ app.get("/pingdb", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.send({ express: "Testing again" });
+  res.send({ express: "Dockerfile.prod!" });
 });
 app.post("/test", (req, res) => {
   res.send(
