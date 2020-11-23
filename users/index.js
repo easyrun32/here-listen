@@ -3,22 +3,17 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 const app = express();
-
 const mysql = require("mysql");
 
 const port = process.env.PORT || 5000;
-const login_register = require("./routes/login-register");
+
+const userRoutes = require("./routes/user");
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const router = express.Router();
-
-console.log('hello world!')
-
-app.post("/register", login_register.register);
-app.post("/login", login_register.login);
+app.use("/user", userRoutes);
 
 app.get("/pingdb", (req, res) => {
   var connection = mysql.createConnection({
