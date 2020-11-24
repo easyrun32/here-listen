@@ -4,10 +4,10 @@
   "description": "[![<easyrun32>](https://circleci.com/gh/easyrun32/here-listen.svg?style=svg)](https://app.circleci.com/pipelines/github/easyrun32/here-listen?branch=main)",
   "main": "index.js",
   "scripts": {
-    "start": "echo \"\\x1b[91mDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\nThank you for contributing!\n\n\\x1b[0m\" && docker-compose -f docker-compose.development.yml up",
-    "build": "echo \"\\x1b[91mBuilding and running the environment!\n\n\\x1b[0m\" && docker-compose -f docker-compose.development.yml up --build",
-    "stop": "docker-compose -f docker-compose.development.yml down",
-    "clean": "echo \"\\x1b[91mTHIS SCRIPT DELETES EVERYTHING STORED IN THE DEVELOPMENT DATABASE\n\n\n\n\\x1b[0m\" && docker system prune && docker volume rm $(docker volume ls -qf dangling=true)"
+    "start": "echo \"\\x1b[91mDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\nThank you for contributing!\n\n\\x1b[0m\" && docker-compose up",
+    "build": "echo \"\\x1b[91mBuilding and running the environment!\n\n\\x1b[0m\" && docker-compose up --build",
+    "stop": "docker-compose down",
+    "clean": "echo \"\\x1b[91mTHIS SCRIPT DELETES EVERYTHING STORED IN THE DEVELOPMENT DATABASE\n\n\n\n\\x1b[0m\" && docker system prune && echo \"\\x1b[91mDELETING ALL DANGLING VOLUMES\n\n\n\n\\x1b[0m\" && docker volume rm $(docker volume ls -qf dangling=true)"
   },
   "repository": {
     "type": "git",

@@ -39,7 +39,7 @@ app.get("/pingdb", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  res.send({ express: "No need for docker-compose up build" });
+  res.send({ express: "No need for docker-compose up build in buildspec.yml" });
 });
 app.post("/test", (req, res) => {
   res.send(
