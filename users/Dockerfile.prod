@@ -1,0 +1,22 @@
+FROM node:14-alpine
+
+# Create app directory
+# this initialize bash to run bash wait-for-it.sh
+RUN echo 'Dockerfile.prod'
+
+RUN apk update && apk add bash
+# set working directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+#New
+# RUN npm install npm@7
+
+RUN npm install 
+
+COPY . .
+
+CMD [ "npm", "start" ] 
