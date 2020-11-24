@@ -3,7 +3,7 @@ services:
   users:
     build:
       context: ./users
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.dev
     volumes:
       - "./users:/usr/src/app"
     ports:
@@ -37,7 +37,7 @@ services:
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.dev
     volumes:
       - "./client:/usr/src/app"
       - "/usr/src/app/node_modules"
