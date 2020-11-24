@@ -13,21 +13,13 @@ phases:
     commands:
       - echo logging in to ecr...
       - $(aws ecr get-login --no-include-email --region $AWS_REGION)
-      #new.
       - |
         if expr "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/main" >/dev/null  && expr "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/main" >/dev/null; then
           DOCKER_TAG=prod
         else
           DOCKER_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION}
         fi
-      #new
       - echo "Docker tag:" $DOCKER_TAG
-      # docker login --username AWS --password-stdin #old
-      # docker login -u reactnode32 --password-stdin < .docker.key
-      # aws s3 cp s3://mybucket/mypath/.docker.key .docker.key
-      # - aws s3 cp s3://docker-token/docker.key .docker.key
-      # aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin < .docker.key 642815940637.dkr.ecr.us-east-1.amazonaws.com
-      #- aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin  $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG || true
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder || true
@@ -35,7 +27,6 @@ phases:
   build:
     commands:
       - echo building images
-      # - docker-compose up -d --build
       - echo Testing,Linting, should go here...
       - echo building prod images...
       - echo building User image  Builder image  Client image ...
