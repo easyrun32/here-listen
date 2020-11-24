@@ -3,8 +3,7 @@ services:
   users:
     build:
       context: ./users
-      dockerfile: Dockerfile.dev
-    # command: ["/wait-for-it.sh", "users-db:3307", "--", "npm", "start"]
+      dockerfile: Dockerfile.prod
     volumes:
       - "./users:/usr/src/app"
     ports:
@@ -38,7 +37,7 @@ services:
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile.prod
     volumes:
       - "./client:/usr/src/app"
       - "/usr/src/app/node_modules"
