@@ -32,7 +32,6 @@ phases:
       - echo building prod images...
       - echo building User image  Builder image  Client image ...
       - echo Preparing to build Production! with DockerFile
-      - echo Using docker-compose up Images to build these images
       - >
         docker build \
           --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG \
