@@ -53,18 +53,17 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 ## (Unix Users)
 
 ```
-cd here-listen
-cd users && npm install
-cd ..
-cd client && npm install 
-
-
-
 export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
+// You can check if this work by doing
+env
+
 // For first time users
 npm run starting
 
+
+// then start up your environment with
 npm run build
+
 
 // Also beware docker will eat your memory i have stuff to help you at the end of this Readme.md
 ```
@@ -93,7 +92,7 @@ npm run starting
 
 SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001
 
-// To check for you all your env
+// To check all your env type
 
 SET
 
