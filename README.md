@@ -58,14 +58,13 @@ cd users && npm install
 cd ..
 cd client && npm install 
 
+
+
 export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
-docker-compose up
+// For first time users
+npm run starting
 
-// Also don't Forget to do!
-
-docker-compose down
-
-// Your code will not update if you don't do this!
+npm run build
 
 // Also beware docker will eat your memory i have stuff to help you at the end of this Readme.md
 ```
@@ -89,10 +88,8 @@ then add your working directory
 then...
 
 ```
-cd here-listen
-cd users && npm install
-cd ..
-cd client && npm install 
+// For first time users
+npm run starting
 
 SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001
 
@@ -102,13 +99,7 @@ SET
 
 // then start up your environment with
 
-docker-compose up
-
-// Also don't Forget to do!
-
-docker-compose down
-
-// Your code will not update if you don't do this!
+npm run build
 
 ```
 
@@ -122,6 +113,10 @@ personally i do 16gb
 ## Also to delete docker images
 
 This site will help alot
+
+```
+
+```
 
 - [free my memory from docker evils hands link](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
