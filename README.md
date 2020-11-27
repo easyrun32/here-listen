@@ -2,6 +2,8 @@
 
 [![<easyrun32>](https://circleci.com/gh/easyrun32/here-listen.svg?style=svg)](https://app.circleci.com/pipelines/github/easyrun32/here-listen?branch=main)
 
+🤖 [Alexa-repo](https://github.com/easyrun32/here-listen-alexa) Alexa repo code on Aws Lambda
+
 Here listen is a microservice app that uses Alexa. Well... soon to use Alexa. This is a boilerplate as of now but it's already deployable with codebuild using ecs.
 <br/>
 But this project is to deliver important notices to an online bussiness or ongoing projects.
@@ -131,7 +133,6 @@ This project will virtualize itself in a container and Install all the dependenc
 ## License
 
 MIT
-
 [file-share-error]: https://stackoverflow.com/questions/60754297/docker-compose-failed-to-build-filesharing-has-been-cancelled
 [docker]: https://www.docker.com
 [terraform]: https://www.terraform.io/
