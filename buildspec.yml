@@ -5,7 +5,6 @@ env:
     AWS_REGION: "us-east-1"
     REACT_APP_USERS_SERVICE_URL: ${ALB_DNS}
     SECRET: ${SECRET}
-    SECRET2: $SECRET2
 
 phases:
   install:
