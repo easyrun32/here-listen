@@ -71,6 +71,7 @@ DEFINITION
 
 
 #TASK DEFINITION FOR CLIENT
+
 resource "aws_ecs_task_definition" "here-listen-client-td" {
   family = "here-listen-client-td"
 
@@ -81,9 +82,6 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
     "environment": [{
       "name": "SECRETME",
       "value": "${var.secretme}"
-    },
-    {"name":"KEY1",
-    "value":"VALUE1"
     }
     ],
 
