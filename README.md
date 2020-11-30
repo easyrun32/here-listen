@@ -117,6 +117,7 @@ This site will help alot. Or you can clean docker by doing this just clears dock
 
 ```
 npm run clean
+
 ```
 
 - [free my memory from docker evils hands link](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
