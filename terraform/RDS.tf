@@ -12,6 +12,8 @@ resource "aws_db_instance" "here-listen-db" {
    is specified.
   */
   identifier = "here-listen-db"
+  # KEEP THIS FOR DEVELOPMENT BY DEFAULT IT IS FALSE
+  publicly_accessible = true
 
   /*
   name - (Optional) The name of the database to create when the
