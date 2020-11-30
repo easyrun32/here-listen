@@ -79,8 +79,8 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
   {
     "cpu": 0,
     "environment": [{
-      "name": "SECRET",
-      "value": "KEY"
+      "name": "SECRETME",
+      "value": "${var.secretme}"
     },
     {"name":"KEY1",
     "value":"VALUE1"

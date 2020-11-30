@@ -11,6 +11,12 @@
           "protocol": "tcp",
           "containerPort": 80
         }
+      ],
+      "environment": [
+        {
+          "name": "SECRETME",
+          "value": "%s"
+        }
       ]
     }
   ],

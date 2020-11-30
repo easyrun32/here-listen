@@ -27,7 +27,7 @@ export function App() {
       <br />
       <br />
       <button onClick={testDatabase}>Test Database</button>
-      <button onClick={() => console.log(`secret:${process.env.SECRET}`)}>
+      <button onClick={() => console.log(`secret:${process.env.SECRETME}`)}>
         console.logs
       </button>
       <button onClick={() => console.log(`secret${process.env.SECRET2}`)}>

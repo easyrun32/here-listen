@@ -23,3 +23,6 @@ variable "mysql-user" {
 variable "aws-account-id" {
   type = string
 }
+variable "secretme" {
+  type = string
+}

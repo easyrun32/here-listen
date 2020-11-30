@@ -45,7 +45,7 @@ deploy_cluster() {
   service="here-listen-client-service"   # for all commits on git this will update the ecs
   template="ecs_client_taskdefinition.json"
   task_template=$(cat "ecs/$template")
-  task_def=$(printf "$task_template" $AWS_ACCOUNT_ID)
+  task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $SECRETME)
   echo "$task_def"
   register_definition
   update_service   # for all commits on git this will update the ecs
