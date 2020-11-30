@@ -14,7 +14,7 @@
       ],
       "environment": [
         {
-          "name": "SECRETME",
+          "name": "REACT_APP_SECRETME",
           "value": "%s"
         }
       ]

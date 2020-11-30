@@ -80,7 +80,7 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
   {
     "cpu": 0,
     "environment": [{
-      "name": "SECRETME",
+      "name": "REACT_APP_SECRETME",
       "value": "${var.secretme}"
     }
     ],
