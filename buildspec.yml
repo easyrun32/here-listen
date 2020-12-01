@@ -5,6 +5,7 @@ env:
   variables:
     AWS_REGION: "us-east-1"
     REACT_APP_USERS_SERVICE_URL: ${ALB_DNS}
+    REACT_APP_SECRETME: ${REACT_APP_SECRETME}
 
 phases:
   install:
