@@ -32,11 +32,11 @@ deploy_cluster() {
   
   service="here-listen-users-service"  # for all commits on git this will update the ecs
 
-
+#$AWS_ACCOUNT_ID
   # Users
   template="ecs_users_taskdefinition.json"
   task_template=$(cat "ecs/$template")
-  task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $DATABASE_HOST $MYSQL_ROOT_PASSWORD $MYSQL_USER)
+  task_def=$(printf "$task_template" $DATABASE_HOST $MYSQL_ROOT_PASSWORD $MYSQL_USER)
   echo "$task_def"
   register_definition
   update_service  # for all commits on git this will update the ecs
@@ -45,7 +45,7 @@ deploy_cluster() {
   service="here-listen-client-service"   # for all commits on git this will update the ecs
   template="ecs_client_taskdefinition.json"
   task_template=$(cat "ecs/$template")
-  task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $REACT_APP_SECRETME)
+  task_def=$(printf "$task_template" $REACT_APP_SECRETME)
   echo "$task_def"
   register_definition
   update_service   # for all commits on git this will update the ecs
