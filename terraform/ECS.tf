@@ -58,7 +58,7 @@ resource "aws_ecs_task_definition" "here-listen-users-td" {
 
 
     "essential": true,
-    "image": "${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-users:prod",
+    "image": "reactnode32/here-listen-users:prod",
     "memory": null,
     "memoryReservation": 128,
     "name": "users"
@@ -66,7 +66,12 @@ resource "aws_ecs_task_definition" "here-listen-users-td" {
 ]
 DEFINITION
 }
+#backup 
+#"${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-users:prod"
+#"${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-client:prod"
 
+#reactnode32/here-listen-users
+#reactnode32/here-listen-client
 
 
 
@@ -98,7 +103,7 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
 
 
     "essential": true,
-    "image": "${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-client:prod",
+    "image": "reactnode32/here-listen-client:prod",
     "memory": null,
     "memoryReservation": 128,
     "name": "client"

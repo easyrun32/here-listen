@@ -24,7 +24,7 @@ phases:
       - docker login -u reactnode32 --password-stdin < .docker.key
       - docker pull reactnode32/here-listen-users:$DOCKER_TAG || true
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder || true
-      - docker pull reactnode32/here-listen-users:$DOCKER_TAG || true
+      - docker pull reactnode32/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
       - echo building images
@@ -35,30 +35,30 @@ phases:
       - echo Preparing to build Production! with DockerFile
       - >
         docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG \
+          --cache-from reactnode32/here-listen-users:$DOCKER_TAG \
           -f users/Dockerfile \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG \
+          -t reactnode32/here-listen-users:$DOCKER_TAG \
           ./users
       - >
         docker build \
           --target builder \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder \
+          --cache-from reactnode32/here-listen-client:builder \
           -f client/Dockerfile \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder \
+          -t reactnode32/here-listen-client:builder \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
           ./client
       - >
         docker build \
-          --cache-from $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG \
+          --cache-from reactnode32/here-listen-client:$DOCKER_TAG \
           -f client/Dockerfile \
-          -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG \
+          -t reactnode32/here-listen-client:$DOCKER_TAG \
           ./client
   post_build:
     commands:
       - echo pushing prod images to ecr..
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG
+      - docker push reactnode32/here-listen-users:$DOCKER_TAG
+      - docker push reactnode32/here-listen-client:builder
+      - docker push reactnode32/here-listen-client:$DOCKER_TAG
       - chmod +x ./deploy.sh
       - bash deploy.sh
