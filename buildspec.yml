@@ -12,7 +12,8 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - export REACT_APP_SECRETME=${REACT_APP_SECRETME}
+      - export REACT_APP_CUP=OH_HELLO_THERE
+      - export REACT_APP_SECRETME=$REACT_APP_SECRETME
       - echo logging in to ecr...
       - $(aws ecr get-login --no-include-email --region $AWS_REGION)
       - |
