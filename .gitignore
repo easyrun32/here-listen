@@ -6,4 +6,3 @@
 /terraform/terraform.pub
 /terraform/.terraform.tfstate.lock.info
 .DS_Store
-backup.yml
