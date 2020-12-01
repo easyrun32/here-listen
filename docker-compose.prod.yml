@@ -15,7 +15,8 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
       MYSQL_PASSWORD: password
-      DATABASE_HOST: SOME_DATABASE
+      #was SOME_DATABASE
+      DATABASE_HOST: users-db
 
     depends_on:
       - users-db
@@ -30,7 +31,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
       MYSQL_PASSWORD: password
-      DATABASE_HOST: SOME_DATABASE
+      DATABASE_HOST: users-db
     ports:
       - "3307:3306"
 

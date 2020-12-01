@@ -16,7 +16,8 @@ export function App() {
         alert(JSON.stringify(res.data));
       });
   };
-
+  console.log(process.env.REACT_APP_USERS_SERVICE_URL);
+  console.log(process.env.REACT_APP_SECRETME);
   return (
     <div className="App">
       <br />
@@ -29,16 +30,16 @@ export function App() {
       <button onClick={testDatabase}>Test Database</button>
       <button
         onClick={() =>
-          console.log(
-            `REACT_APP_SECRETME whyyyy:${process.env.REACT_APP_SECRETME}`
-          )
+          console.log(`REACT_APP_SECRETME :${process.env.REACT_APP_SECRETME}`)
         }
       >
         console.logs
       </button>
       <button
         onClick={() =>
-          console.log(`CODEBUILD SECRET${process.env.REACT_APP_CUP}`)
+          console.log(
+            `REACT_APP_USERS_SERVICE_URL${process.env.REACT_APP_USERS_SERVICE_URL}`
+          )
         }
       >
         console.log2

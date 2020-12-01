@@ -5,7 +5,6 @@ env:
   variables:
     AWS_REGION: "us-east-1"
     REACT_APP_USERS_SERVICE_URL: ${ALB_DNS}
-    REACT_APP_SECRETME: ${REACT_APP_SECRETME}
 
 phases:
   install:
@@ -13,8 +12,13 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - export REACT_APP_CUP=OH_HELLO_THERE
+      #new
+      - echo variable is here?
+      - echo ${REACT_APP_SECRETME}
+      - printenv
       - export REACT_APP_SECRETME=$REACT_APP_SECRETME
+      - env
+      #new
       - echo logging in to ecr...
       - $(aws ecr get-login --no-include-email --region $AWS_REGION)
       - |
@@ -30,6 +34,10 @@ phases:
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
+      #new
+      - export REACT_APP_SECRETME=${REACT_APP_SECRETME}
+      - env
+      #new
       - echo building images
       - docker-compose up -d --build
       - echo Testing,Linting, should go here...
