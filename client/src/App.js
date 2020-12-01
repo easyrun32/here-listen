@@ -9,26 +9,6 @@ export function App() {
       alert(JSON.stringify(res.data));
     });
   };
-  const tester = () => {
-    axios
-      .get(`${process.env.REACT_APP_SECRETME}`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
-  const tester2 = () => {
-    axios
-      .get(`${process.env.REACT_APP_SECRETME}/123123123`)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  };
 
   const testDatabase = () => {
     axios
@@ -37,19 +17,12 @@ export function App() {
         alert(JSON.stringify(res.data));
       });
   };
-  // console.log(
-  //   "REACT_APP_USERS_SERVICE_URL",
-  //   process.env.REACT_APP_USERS_SERVICE_URL
-  // );
-  // console.log("process.env.REACT_APP_SECRETME", process.env.REACT_APP_SECRETME);
   return (
     <div className="App">
       <br />
       Hello
       <br />
       <br />
-      <button onClick={tester}>secretify</button>
-      <button onClick={tester2}>secretify2</button>
       <button onClick={testbackend}>Test backend</button>
       <br />
       <br />

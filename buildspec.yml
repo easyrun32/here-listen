@@ -12,13 +12,6 @@ phases:
       docker: 18
   pre_build:
     commands:
-      #new
-      - echo variable is here?
-      - echo ${REACT_APP_SECRETME}
-      - printenv
-      - export REACT_APP_SECRETME=$REACT_APP_SECRETME
-      - env
-      #new
       - echo logging in to ecr...
       - $(aws ecr get-login --no-include-email --region $AWS_REGION)
       - |
@@ -34,10 +27,6 @@ phases:
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
-      #new
-      - export REACT_APP_SECRETME=${REACT_APP_SECRETME}
-      - env
-      #new
       - echo building images
       - docker-compose up -d --build
       - echo Testing,Linting, should go here...
