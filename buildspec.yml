@@ -13,9 +13,6 @@ phases:
   pre_build:
     commands:
       - export REACT_APP_SECRETME=$REACT_APP_SECRETME
-      - env
-      - echo logging in to ecr...
-      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
       - |
         if expr "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/main" >/dev/null  && expr "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/main" >/dev/null; then
           DOCKER_TAG=prod
@@ -23,10 +20,11 @@ phases:
           DOCKER_TAG=${CODEBUILD_RESOLVED_SOURCE_VERSION}
         fi
       - echo "Docker tag:" $DOCKER_TAG
-      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin  $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-      - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-users:$DOCKER_TAG || true
+      - aws aws s3 cp s3://docker-token/.docker.key .docker.key
+      - docker login -u reactnode32 --password-stdin < .docker.key
+      - docker pull reactnode32/here-listen-users:$DOCKER_TAG || true
       - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:builder || true
-      - docker pull $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/here-listen-client:$DOCKER_TAG || true
+      - docker pull reactnode32/here-listen-users:$DOCKER_TAG || true
   build:
     commands:
       - echo building images
