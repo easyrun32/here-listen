@@ -8,7 +8,7 @@ export function App() {
       alert(JSON.stringify(res.data));
     });
   };
-  const aws_secrets = () => {
+  const tester = () => {
     axios.get(`${process.env.REACT_APP_SECRETME}`).then((res) => {
       alert("we know this does not work but i need to set if secretme is set");
     });
@@ -21,18 +21,18 @@ export function App() {
         alert(JSON.stringify(res.data));
       });
   };
-  console.log(
-    "REACT_APP_USERS_SERVICE_URL",
-    process.env.REACT_APP_USERS_SERVICE_URL
-  );
-  console.log("process.env.REACT_APP_SECRETME", process.env.REACT_APP_SECRETME);
+  // console.log(
+  //   "REACT_APP_USERS_SERVICE_URL",
+  //   process.env.REACT_APP_USERS_SERVICE_URL
+  // );
+  // console.log("process.env.REACT_APP_SECRETME", process.env.REACT_APP_SECRETME);
   return (
     <div className="App">
       <br />
       Hello
       <br />
       <br />
-      <button onClick={aws_secrets}>aws secret</button>
+      <button onClick={tester}>secretify</button>
       <button onClick={testbackend}>Test backend</button>
       <br />
       <br />
