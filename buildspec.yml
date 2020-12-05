@@ -49,6 +49,7 @@ phases:
           -t reactnode32/here-listen-client:builder \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
+          --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_SECRETME \
           ./client
       - >
         docker build \
