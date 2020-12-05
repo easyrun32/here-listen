@@ -20,9 +20,9 @@ export function App() {
 
   const testEnv = () => {
     axios
-      .get(`${process.env.REACT_APP_SECRETME}/12312`)
+      .get(`${process.env.REACT_APP_SECRETME}`)
       .then((res) => {
-        console.log("testing env");
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err.message);
