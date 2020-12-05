@@ -29,7 +29,7 @@ export function App() {
       });
   };
   console.log(process.env);
-  if (process.env.REACT_APP_SECRETME === "https://reqbin.com/echo/get/json") {
+  if (process.env.REACT_APP_SECRETME === "LOL") {
     console.log(true);
   } else {
     console.log(false);
