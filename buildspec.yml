@@ -3,7 +3,6 @@ env:
   variables:
     AWS_REGION: "us-east-1"
     REACT_APP_USERS_SERVICE_URL: ${ALB_DNS}
-    REACT_APP_SECRETME: "3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ"
 
 phases:
   install:
@@ -11,8 +10,6 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - env
-      - env | grep $REACT_APP_USERS_SERVICE_URL
       - env | grep $REACT_APP_SECRETME
       - |
         if expr "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/main" >/dev/null  && expr "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/main" >/dev/null; then
@@ -35,8 +32,6 @@ phases:
       - echo building prod images...
       - echo building User image  Builder image  Client image ...
       - echo Preparing to build Production! with DockerFile
-      - env | grep $REACT_APP_SECRETME
-      - export REACT_APP_SECRETME=3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ
       - >
         docker build \
           --cache-from reactnode32/here-listen-users:$DOCKER_TAG \
@@ -58,6 +53,7 @@ phases:
           --cache-from reactnode32/here-listen-client:$DOCKER_TAG \
           -f client/Dockerfile \
           -t reactnode32/here-listen-client:$DOCKER_TAG \
+          --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
           --build-arg REACT_APP_SECRETME=$REACT_APP_SECRETME \
           ./client
   post_build:
