@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import axios from "axios";
 //BOILERPLATE
-
+import { useAuth0 } from "@auth0/auth0-react";
 export function App() {
   const testbackend = () => {
     axios.get(`${process.env.REACT_APP_USERS_SERVICE_URL}/test`).then((res) => {
@@ -28,12 +28,12 @@ export function App() {
         console.log(err.message);
       });
   };
+
+  const { user, isAuthenticated, loginWithRedirect } = useAuth0();
+
   console.log(process.env);
-  if (process.env.REACT_APP_SECRETME === "LOL") {
-    console.log(true);
-  } else {
-    console.log(false);
-  }
+  console.log(user);
+  console.log(isAuthenticated);
   return (
     <div className="App">
       <br />
@@ -42,6 +42,7 @@ export function App() {
       <br />
       <button onClick={testbackend}>Test backend</button>
       <button onClick={testEnv}>Test ENV</button>
+      <button onClick={() => loginWithRedirect()}>Log In</button>
       <br />
       <br />
       <button onClick={testDatabase}>Test Database</button>
