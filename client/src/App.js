@@ -29,6 +29,11 @@ export function App() {
       });
   };
   console.log(process.env);
+  if (process.env.REACT_APP_SECRETME === "https://reqbin.com/echo/get/json") {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
   return (
     <div className="App">
       <br />

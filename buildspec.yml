@@ -10,6 +10,8 @@ phases:
       docker: 18
   pre_build:
     commands:
+      - env
+      - env | grep $REACT_APP_USERS_SERVICE_URL
       - export REACT_APP_SECRETME=$REACT_APP_SECRETME
       - env | grep $REACT_APP_SECRETME
       - |
