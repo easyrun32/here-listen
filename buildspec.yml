@@ -3,6 +3,7 @@ env:
   variables:
     AWS_REGION: "us-east-1"
     REACT_APP_USERS_SERVICE_URL: ${ALB_DNS}
+    REACT_APP_SECRETME: "3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ"
 
 phases:
   install:
@@ -12,7 +13,6 @@ phases:
     commands:
       - env
       - env | grep $REACT_APP_USERS_SERVICE_URL
-      - export REACT_APP_SECRETME=$REACT_APP_SECRETME
       - env | grep $REACT_APP_SECRETME
       - |
         if expr "$CODEBUILD_WEBHOOK_TRIGGER" == "branch/main" >/dev/null  && expr "$CODEBUILD_WEBHOOK_HEAD_REF" == "refs/heads/main" >/dev/null; then
