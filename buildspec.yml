@@ -29,6 +29,8 @@ phases:
       - docker pull reactnode32/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
+      - export REACT_APP_SECRETME='3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ'
+      - env | grep $REACT_APP_SECRETME
       - echo building images
       - docker-compose up -d --build
       - echo Testing,Linting, should go here...

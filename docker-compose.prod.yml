@@ -40,6 +40,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
       args:
+        - TEST=hey
         - NODE_ENV=production
         - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
         - REACT_APP_SECRETME=${REACT_APP_SECRETME}
