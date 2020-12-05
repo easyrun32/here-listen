@@ -17,6 +17,18 @@ export function App() {
         alert(JSON.stringify(res.data));
       });
   };
+
+  const testEnv = () => {
+    axios
+      .get(`${process.env.REACT_APP_SECRETME}/12312`)
+      .then((res) => {
+        console.log("testing env");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  console.log(process.env);
   return (
     <div className="App">
       <br />
@@ -24,6 +36,7 @@ export function App() {
       <br />
       <br />
       <button onClick={testbackend}>Test backend</button>
+      <button onClick={testEnv}>Test ENV</button>
       <br />
       <br />
       <button onClick={testDatabase}>Test Database</button>

@@ -1,6 +1,4 @@
 version: 0.2
-# WARNING IF CODEBUILD GIVES YOU ERROR THAT SAYS PULL RATE LIMIT
-# ITS SOMETHING WRONG WITH THIS FILE
 env:
   variables:
     AWS_REGION: "us-east-1"
@@ -22,6 +20,7 @@ phases:
       - echo "Docker tag:" $DOCKER_TAG
       - aws s3 cp s3://docker-token/.docker.key .docker.key
       - docker login -u reactnode32 --password-stdin < .docker.key
+      - rm .docker.key
       - docker pull reactnode32/here-listen-users:$DOCKER_TAG || true
       - docker pull reactnode32/here-listen-client:builder || true
       - docker pull reactnode32/here-listen-client:$DOCKER_TAG || true
