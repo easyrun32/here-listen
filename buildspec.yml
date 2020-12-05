@@ -49,14 +49,15 @@ phases:
           --cache-from reactnode32/here-listen-client:builder \
           -f client/Dockerfile \
           -t reactnode32/here-listen-client:builder \
+          -e REACT_APP_SECRETME=frombuildyml \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
-          --build-arg REACT_APP_SECRETME=$REACT_APP_SECRETME \
           ./client
       - >
         docker build \
           --cache-from reactnode32/here-listen-client:$DOCKER_TAG \
           -f client/Dockerfile \
+          -e REACT_APP_SECRETME=frombuildyml \
           -t reactnode32/here-listen-client:$DOCKER_TAG \
           ./client
   post_build:

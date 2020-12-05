@@ -7,3 +7,4 @@
 /terraform/.terraform.tfstate.lock.info
 .DS_Store
 backup.yml
+.test
