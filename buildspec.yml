@@ -29,13 +29,14 @@ phases:
       - docker pull reactnode32/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
-      - env | grep $REACT_APP_SECRETME
       - echo building images
       - docker-compose up -d --build
       - echo Testing,Linting, should go here...
       - echo building prod images...
       - echo building User image  Builder image  Client image ...
       - echo Preparing to build Production! with DockerFile
+      - env | grep $REACT_APP_SECRETME
+      - export REACT_APP_SECRETME=3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ
       - >
         docker build \
           --cache-from reactnode32/here-listen-users:$DOCKER_TAG \
@@ -50,7 +51,7 @@ phases:
           -t reactnode32/here-listen-client:builder \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
-          --build-arg REACT_APP_SECRETME=buildspecyml \
+          --build-arg REACT_APP_SECRETME=$REACT_APP_SECRETME \
           ./client
       - >
         docker build \
