@@ -29,7 +29,6 @@ phases:
       - docker pull reactnode32/here-listen-client:$DOCKER_TAG || true
   build:
     commands:
-      - export REACT_APP_SECRETME='3oQ0f6EDD1Thi2lkF3xskKlH8mx07nHQ'
       - env | grep $REACT_APP_SECRETME
       - echo building images
       - docker-compose up -d --build
@@ -49,15 +48,14 @@ phases:
           --cache-from reactnode32/here-listen-client:builder \
           -f client/Dockerfile \
           -t reactnode32/here-listen-client:builder \
-          -e REACT_APP_SECRETME=frombuildyml \
           --build-arg NODE_ENV=production \
           --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
+          --build-arg REACT_APP_SECRETME=buildspecyml \
           ./client
       - >
         docker build \
           --cache-from reactnode32/here-listen-client:$DOCKER_TAG \
           -f client/Dockerfile \
-          -e REACT_APP_SECRETME=frombuildyml \
           -t reactnode32/here-listen-client:$DOCKER_TAG \
           ./client
   post_build:
