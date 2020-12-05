@@ -53,7 +53,6 @@ phases:
           --cache-from reactnode32/here-listen-client:$DOCKER_TAG \
           -f client/Dockerfile \
           -t reactnode32/here-listen-client:$DOCKER_TAG \
-          --build-arg REACT_APP_USERS_SERVICE_URL=$REACT_APP_USERS_SERVICE_URL \
           --build-arg REACT_APP_SECRETME=$REACT_APP_SECRETME \
           ./client
   post_build:
