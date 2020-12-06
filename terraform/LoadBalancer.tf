@@ -18,11 +18,12 @@ resource "aws_lb" "here-listen-alb" {
 //LISTENER for HTTPS
 resource "aws_lb_listener" "listener_https" {
   load_balancer_arn = aws_lb.here-listen-alb.arn
+  port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = "arn:aws:acm:us-east-1:642815940637:certificate/c78aa002-1f17-45bd-8735-053bc0ac9b50"
   // GO TO CLIENT
-   default_action {
+  default_action {
     type = "forward"
 
     target_group_arn = aws_lb_target_group.client.arn
@@ -38,11 +39,6 @@ resource "aws_lb_listener" "listener_http" {
   load_balancer_arn = aws_lb.here-listen-alb.arn
   port              = "80"
   protocol          = "HTTP"
-  # default_action {
-  #   type = "forward"
-
-  #   target_group_arn = aws_lb_target_group.client.arn
-  # }
   default_action {
     type = "redirect"
 
@@ -51,6 +47,7 @@ resource "aws_lb_listener" "listener_http" {
       protocol    = "HTTPS"
       status_code = "HTTP_301"
     }
+  }
 }
 
 //Target Group
