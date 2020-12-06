@@ -13,16 +13,44 @@ resource "aws_lb" "here-listen-alb" {
 
 
 
-//LISTENER
-resource "aws_lb_listener" "test" {
+
+
+//LISTENER for HTTPS
+resource "aws_lb_listener" "listener_https" {
   load_balancer_arn = aws_lb.here-listen-alb.arn
-  port              = "80"
-  protocol          = "HTTP"
-  default_action {
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-east-1:642815940637:certificate/c78aa002-1f17-45bd-8735-053bc0ac9b50"
+  // GO TO CLIENT
+   default_action {
     type = "forward"
 
     target_group_arn = aws_lb_target_group.client.arn
   }
+
+}
+
+
+
+//LISTENER for HTTP
+//REDIRECT ALL HTTP TO HTTPS ^ UP THERE
+resource "aws_lb_listener" "listener_http" {
+  load_balancer_arn = aws_lb.here-listen-alb.arn
+  port              = "80"
+  protocol          = "HTTP"
+  # default_action {
+  #   type = "forward"
+
+  #   target_group_arn = aws_lb_target_group.client.arn
+  # }
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
 }
 
 //Target Group
@@ -48,7 +76,9 @@ resource "aws_lb_target_group" "users" {
 
 //RULES
 resource "aws_lb_listener_rule" "static" {
-  listener_arn = aws_lb_listener.test.arn
+  //was this before
+  # listener_arn = aws_lb_listener.listener_http.arn
+  listener_arn = aws_lb_listener.listener_https.arn
   priority     = 100
 
   action {
