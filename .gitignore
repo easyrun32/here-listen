@@ -4,6 +4,7 @@
 /terraform/terraform.tfvars
 /terraform/terraform.pem
 /terraform/terraform.pub
+/terraform/LoadBalancer.backup.tf
 /terraform/.terraform.tfstate.lock.info
 .DS_Store
 backup.yml
