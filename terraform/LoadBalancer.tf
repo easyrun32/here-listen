@@ -11,7 +11,7 @@ resource "aws_lb" "here-listen-alb" {
 
 
 
-//Target Group
+//CLIENT TARGET GROUP
 resource "aws_lb_target_group" "client" {
   name     = "here-listen-client-tg"
   port     = 80
@@ -19,7 +19,7 @@ resource "aws_lb_target_group" "client" {
   vpc_id   = aws_default_vpc.default.id
 }
 
-//Target Group
+//USER TARGET GROUP
 resource "aws_lb_target_group" "users" {
 
   name     = "here-listen-users-tg"
@@ -30,7 +30,7 @@ resource "aws_lb_target_group" "users" {
     path = "/test"
   }
 }
-
+//HTTP
 resource "aws_lb_listener" "listener_http" {
   load_balancer_arn = aws_lb.here-listen-alb.arn
   port              = "80"
@@ -43,7 +43,7 @@ resource "aws_lb_listener" "listener_http" {
 
 }
 
-
+//HTTP TO USER
 resource "aws_lb_listener_rule" "static" {
 
   listener_arn = aws_lb_listener.listener_http.arn
@@ -63,6 +63,41 @@ resource "aws_lb_listener_rule" "static" {
 }
 
 
+//HTTPS TO CLIENT 
+resource "aws_lb_listener" "listener_https" {
+  load_balancer_arn = aws_lb.here-listen-alb.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-east-1:642815940637:certificate/406807ba-efb4-41c0-98c5-b0794a9b04e4"
+  // GO TO CLIENT
+  default_action {
+    type = "forward"
+
+    target_group_arn = aws_lb_target_group.client.arn
+  }
+
+}
+
+
+//HTTPS TO USER
+resource "aws_lb_listener_rule" "https_lisener" {
+
+  listener_arn = aws_lb_listener.listener_https.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.users.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/test", "/pingdb", "/user/login", "/user/register"]
+    }
+  }
+
+}
 
 
 
