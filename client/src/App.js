@@ -37,7 +37,7 @@ export function App() {
   return (
     <div className="App">
       <br />
-      hello updated
+      Updated task definition
       <br />
       <br />
       <button onClick={testbackend}>Test backend</button>
