@@ -131,6 +131,80 @@ npm run clean
 
 This project will virtualize itself in a container and Install all the dependencies and devDependencies to start the application.
 
+## Infrastructure setup
+
+Fill in all terraform information in terraform.example.tfvars
+
+and rename to terrafrom.tfvars
+
+MAKE SURE YOU DONT PUT THAT INTO GITHUB
+
+After you created codebuild with aws
+
+with repository with my github
+
+- enabled report build statuses
+
+Under Primary source webhook events
+
+- Rebuild every time a code change is pushed to this repository
+
+^ important cause
+
+ecs task definition will update the code otherwise nothing will happen
+
+Then
+
+- Create a role for codebuild with these policy names
+
+* AmazonS3FullAccess
+* AmazonECS_FullAccess
+* AmazonEC2ContainerRegistryPowerUser
+
+This is for codebuild to have permissions to well ecs.. and s3
+
+For S3 the reason you need a policy name well its cause i stored my dockerhub personal token in s3
+
+https://www.docker.com/blog/docker-hub-new-personal-access-tokens/
+
+so..
+
+Look at my aws s3 for the path s3://docker-token/.docker.key and call it
+.docker.key
+
+`- aws s3 cp s3://docker-token/.docker.key .docker.key`
+
+And login with the token
+
+`docker login -u {your_username} --password-stdin < .docker.key `
+
+remove it cause spies are watching...
+`docker rm .docker.key`
+
+Some terraform code is moduled meaning it's from a terraform libary.
+Ecs_cluster is from a libary i used
+
+Then do
+
+```
+cd /terraform
+
+terraform init
+
+ssh-keygen -t rsa -b 4096 -C {Your_email} -N '' -f ./{Name_of_file}
+
+```
+
+- You should get two files
+- One that says {Name_of_files}.pub and the other one {Name_of_file}
+- change the {Name_of_file} to {Name_of_file}.pem
+- upload the .pem file to aws key pair to ssh into ec2 instance
+
+```
+terraform apply
+
+```
+
 ## License
 
 MIT

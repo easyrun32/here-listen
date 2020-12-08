@@ -2,7 +2,7 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "reactnode32/here-listen-client:prod",
+      "image": "%s/here-listen-client:prod",
       "essential": true,
       "memoryReservation": 300,
       "portMappings": [
@@ -10,12 +10,6 @@
           "hostPort": 0,
           "protocol": "tcp",
           "containerPort": 80
-        }
-      ],
-      "environment": [
-        {
-          "name": "REACT_APP_SECRETME",
-          "value": "%s"
         }
       ]
     }

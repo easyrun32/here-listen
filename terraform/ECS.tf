@@ -58,7 +58,7 @@ resource "aws_ecs_task_definition" "here-listen-users-td" {
 
 
     "essential": true,
-    "image": "reactnode32/here-listen-users:prod",
+    "image": "${var.docker-username}/here-listen-users:prod",
     "memory": null,
     "memoryReservation": 128,
     "name": "users"
@@ -66,12 +66,6 @@ resource "aws_ecs_task_definition" "here-listen-users-td" {
 ]
 DEFINITION
 }
-#backup 
-#"${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-users:prod"
-#"${var.aws-account-id}.dkr.ecr.${var.aws-region}.amazonaws.com/here-listen-client:prod"
-
-#reactnode32/here-listen-users
-#reactnode32/here-listen-client
 
 
 
@@ -86,7 +80,7 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
     "cpu": 0,
     "environment": [{
       "name": "REACT_APP_SECRETME",
-      "value": "${var.secretme}"
+      "value": "EXAMPLE"
     }
     ],
 
@@ -103,7 +97,7 @@ resource "aws_ecs_task_definition" "here-listen-client-td" {
 
 
     "essential": true,
-    "image": "reactnode32/here-listen-client:prod",
+    "image": "${var.docker-username}/here-listen-client:prod",
     "memory": null,
     "memoryReservation": 128,
     "name": "client"
