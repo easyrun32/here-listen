@@ -139,13 +139,15 @@ and rename to terrafrom.tfvars
 
 MAKE SURE YOU DONT PUT THAT INTO GITHUB
 
-After you created codebuild with aws
+After you created codebuild within aws
 
-with repository with my github
+look for -> with repository with my github, check that and look for your git
+
+DO NOT DO PUBLIC REPOSITORY otherwise the below info will not show.
 
 - enabled report build statuses
 
-Under Primary source webhook events
+- Under Primary source webhook events
 
 - Rebuild every time a code change is pushed to this repository
 
@@ -153,24 +155,26 @@ Under Primary source webhook events
 
 ecs task definition will update the code otherwise nothing will happen
 
-Then
+Then look for the role you made with codebuild !
 
-- Create a role for codebuild with these policy names
+- insert these policy names for codebuild
 
 * AmazonS3FullAccess
 * AmazonECS_FullAccess
 * AmazonEC2ContainerRegistryPowerUser
 
-This is for codebuild to have permissions to well ecs.. and s3
+This is for codebuild to have permissions to well... ecs..s3....
 
 For S3 the reason you need a policy name well its cause i stored my dockerhub personal token in s3
 
 https://www.docker.com/blog/docker-hub-new-personal-access-tokens/
 
-so..
+so.. go grab that token off that website and create a file within s3
+call it .docker.key
 
-Look at my aws s3 for the path s3://docker-token/.docker.key and call it
-.docker.key
+thats why thats there in buildspec.yml
+
+it basically means log with aws create a copy from s3 and login with it
 
 `- aws s3 cp s3://docker-token/.docker.key .docker.key`
 
@@ -204,6 +208,25 @@ ssh-keygen -t rsa -b 4096 -C {Your_email} -N '' -f ./{Name_of_file}
 terraform apply
 
 ```
+
+You'll probably be very disapointed at looking at a blank screen.
+The reason is because auth0 within react says we don't support http
+only https.The quickest way to fix this is by buying a domain from aws
+or you could go to hostgator and buy cheap domains for 4\$ which will be a lot of configurations. Well not really i'll leave that to you to google search it.
+
+But i bought a 12\$ domain from aws which created a hosted zone
+so if you do that
+all you have to do is go to aws certificate manager create a certificate for your {Domain} next next next when you look through the certificate manager look for create record in route 53
+
+then go to route 53 and click the hosted zone. Create a record
+define a simple record no need to put a name for it just look for alias
+to application load balancer, chose region, and chose the the application load balancer
+
+whew maybe that was too much but welcome to Devops world in AWS
+
+benefits are massive scaling so you could create ec2 instances in any region
+like Tokoyo or like scale your ec2 instance to some outragous ssd
+but that will probably cost you more than 1,000 dollars a month....
 
 ## License
 
