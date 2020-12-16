@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "starting": "echo \"\\x1b[91mHello thank you for contributing\n\nYou can contribute by literally just testing the app\n\nIt helps A lot\n\nAgain, thank you for contributing!\n\n\\x1b[0m\"&& cd client && npm i && cd .. && cd users && npm i",
-    "start": "echo \"\\x1b[91mDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\nThank you for contributing!\n\n\\x1b[0m\" && cd development && docker-compose -f docker-compose.development.yml up",
-    "build": "echo \"\\x1b[91mBuilding and running the environment!\n\nDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\n\\x1b[0m\" && cd development && docker-compose -f docker-compose.development.yml up --build",
-    "stop": "cd development && docker-compose -f docker-compose.development.yml down",
+    "start": "echo \"\\x1b[91mDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\nThank you for contributing!\n\n\\x1b[0m\" &&  docker-compose -f docker-compose.development.yml up",
+    "build": "echo \"\\x1b[91mBuilding and running the environment!\n\nDon't forget to do npm stop.\n\nYour code will not update.\n\nIf you edited the code!\n\n\\x1b[0m\" &&  docker-compose -f docker-compose.development.yml up --build",
+    "stop": "docker-compose -f docker-compose.development.yml down",
     "clean": "echo \"\\x1b[91mTHIS SCRIPT DELETES EVERYTHING STORED IN THE DEVELOPMENT DATABASE\n\n\n\n\\x1b[0m\" && docker system prune && echo \"\\x1b[91mDELETING ALL DANGLING VOLUMES\n\n\n\n\\x1b[0m\" && docker volume rm $(docker volume ls -qf dangling=true)",
     "start-prod-build": "docker-compose -f docker-compose.prod.yml up --build",
     "start-prod": "docker-compose -f docker-compose.prod.yml up ",

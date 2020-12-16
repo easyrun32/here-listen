@@ -18,5 +18,8 @@ COPY .env /usr/src/app/.env
 RUN npm ci
 RUN npm install react-scripts@3.4.0 -g --silent
 
+# export all env file in .env
+RUN export $(cat .env)
+
 # start app
 CMD ["npm", "start"]
