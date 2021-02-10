@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 
 app.use("/user", userRoutes);
 
+
+
+
 app.get("/pingdb", (req, res) => {
   var connection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
