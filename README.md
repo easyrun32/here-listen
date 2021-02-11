@@ -4,9 +4,9 @@
 
 🤖 [Alexa-repo](https://github.com/easyrun32/here-listen-alexa) Alexa repo code on Aws Lambda
 
-Here listen is a microservice app that uses Alexa. Well... soon to use Alexa. This is a boilerplate as of now but it's already deployable with codebuild using ecs.
+Here listen is a microservice app that uses Alexa. Well... soon to use Alexa. This is a boilerplate as of now but it's already deployable with codebuild using elastic container service.
 <br/>
-But this project is to deliver important notices to an online bussiness or ongoing projects.
+But this project is a JIRA CLONE.
 
 ## Example
 
@@ -47,7 +47,7 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 
 <ol>
 <li>Download Docker</li>
-<li>Download this project</li>
+<li>Download this project/fork it</li>
 <li>Go to this project in Terminal or CMD</li>
 
 </ol>
@@ -55,9 +55,7 @@ It's ok don't be afraid to contribute to this project is in its early stages! Ri
 ## (Unix Users)
 
 ```
-export REACT_APP_USERS_SERVICE_URL=http://localhost:5001
-// You can check if this work by doing
-env
+//Rename .env.example to .env inside /client
 
 // For first time users
 npm run starting
@@ -89,14 +87,9 @@ then add your working directory
 then...
 
 ```
+//Rename .env.example to .env inside /client
 // For first time users
 npm run starting
-
-SET  REACT_APP_USERS_SERVICE_URL=http://localhost:5001
-
-// To check all your env type
-
-SET
 
 // then start up your environment with
 
